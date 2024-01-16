@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+.containerCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  flex: 0 0 91%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.header {
+  flex: 1;
+  background-color: #3c006b;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header-line {
+  background-color: #ff3269;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputSection {
+  border-bottom: 2px solid blueviolet;
+}
+
+.cardImg {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.cardImg2 {
+  height: 24px;
+  width: 24px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b6d8ff;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.capsule {
+  background-color: #3c006b;
+  min-width: 120px;
+}
+
+.capsule:hover {
+  border: 2px solid #ff3269;
+}
+
+.profile {
+  background-color: white;
+}
+
+.profile:hover,
+.profile.hover-effect {
+  background-color: #4299e1;
 }

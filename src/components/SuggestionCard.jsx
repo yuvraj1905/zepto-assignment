@@ -9,6 +9,7 @@ const SuggestionCard = ({ data }) => {
     capData,
     setCapdata,
     setQuery,
+    filtereddata,
     setFiltereddata,
     selectedIndex,
     setSelectedIndex,
@@ -22,29 +23,26 @@ const SuggestionCard = ({ data }) => {
     setFiltereddata([...newData]);
   };
   const handleHover = (name) => {
-    // console.log(selectedIndex);
     if (selectedIndex !== null) {
-      const suggestionsSection = document.getElementById("suggestionsSection");
-      const divInsideCapsules = suggestionsSection.getElementsByTagName("div");
-      for (let i = 0; i < divInsideCapsules?.length; i++) {
-        divInsideCapsules[i].style.backgroundColor = "white";
-        divInsideCapsules[i].classList.add("hover-effect");
+      let index = -1;
+      for (let i = 0; i < filtereddata?.length; i++) {
+        index++;
+        if (filtereddata[i].name === name) {
+          break;
+        }
+        continue;
       }
-      //   const currIndex = [...divInsideCapsules].findIndex(
-      //     (e) => e.name === name
-      //   );
-      //   const selectedProfile = divInsideCapsules[currIndex];
-      //   if (selectedProfile) {
-      //     selectedProfile.style.backgroundColor = "#4299e1";
-      //   }
-      setSelectedIndex(null);
+      if (index !== -1) {
+        setSelectedIndex(index);
+      }
     }
   };
+
   return (
     <div
       onMouseEnter={() => handleHover(name)}
       onClick={() => clickHandler(name)}
-      className="p-2 w-full bg-white  flex items-center profile gap-4 hover:bg-blue-400 hover:cursor-pointer"
+      className="p-2 w-full bg-white flex items-center profile gap-4 hover:cursor-pointer"
     >
       <img src={pictureUrl} alt="" className="cardImg" />
       <p className="font-semibold text-xl">{name}</p>

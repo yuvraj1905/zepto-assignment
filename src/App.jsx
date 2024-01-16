@@ -32,29 +32,6 @@ function App() {
     setFiltereddata([...filtered]);
     setSelectedIndex(null);
   };
-  // const handleKeyDown = (e) => {
-  //   if (e.key === "ArrowUp") {
-  //     e.preventDefault();
-  //     if (selectedIndex === null || selectedIndex === 0) {
-  //       setSelectedIndex(filtereddata.length - 1);
-  //     } else {
-  //       setSelectedIndex((prevIndex) => Math.max(prevIndex - 1, 0));
-  //     }
-  //   } else if (e.key === "ArrowDown") {
-  //     e.preventDefault();
-  //     if (selectedIndex === null || selectedIndex === filtereddata.length - 1) {
-  //       setSelectedIndex(0);
-  //     } else {
-  //       setSelectedIndex((prevIndex) =>
-  //         prevIndex === null
-  //           ? 0
-  //           : Math.min(prevIndex + 1, filtereddata.length - 1)
-  //       );
-  //     }
-  //   } else if (e.key === "Enter" && selectedIndex !== null) {
-  //     console.log(filtereddata[selectedIndex]);
-  //   }
-  // };
   let delConfirm = false;
   const handleKeyDown = (e) => {
     if (delConfirm && e.key !== "Backspace") {
@@ -122,6 +99,7 @@ function App() {
   };
 
   useEffect(() => {
+    console.log(selectedIndex);
     if (selectedIndex !== null) {
       const suggestionsSection = document.getElementById("suggestionsSection");
       const divInsideCapsules = suggestionsSection.getElementsByTagName("div");
@@ -169,9 +147,6 @@ function App() {
             onFocus={() => {
               setSuggestionDisplay(true);
             }}
-            // onBlur={() => {
-            //   setSuggestionDisplay(false);
-            // }}
             className="w-full p-3 mt-3 text-black outline-none pl-2 line-clamp-2"
             placeholder="Add new user.."
             type="text"
